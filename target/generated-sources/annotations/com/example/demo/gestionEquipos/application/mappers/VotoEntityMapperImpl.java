@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-02-26T18:51:30+0100",
-    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.39.0.v20240820-0604, environment: Java 21.0.4 (Eclipse Adoptium)"
+    date = "2025-02-26T19:30:07+0100",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.4 (Eclipse Adoptium)"
 )
 @Component
 public class VotoEntityMapperImpl implements VotoEntityMapper {
@@ -26,12 +26,12 @@ public class VotoEntityMapperImpl implements VotoEntityMapper {
 
         Voto voto = new Voto();
 
-        voto.setAsistencias( equipoEntity.getAsistencias() );
-        voto.setGoles( equipoEntity.getGoles() );
         voto.setJugador( equipoEntity.getJugador() );
         voto.setPartido( equipoEntity.getPartido() );
         voto.setUsuario( equipoEntity.getUsuario() );
         voto.setValoracion( equipoEntity.getValoracion() );
+        voto.setGoles( equipoEntity.getGoles() );
+        voto.setAsistencias( equipoEntity.getAsistencias() );
 
         return voto;
     }
@@ -45,11 +45,11 @@ public class VotoEntityMapperImpl implements VotoEntityMapper {
         EquipoEntity equipoEntity = new EquipoEntity();
 
         equipoEntity.setId( equipoDomain.getId() );
+        equipoEntity.setNombre( equipoDomain.getNombre() );
         List<Jugador> list = equipoDomain.getJugadores();
         if ( list != null ) {
             equipoEntity.setJugadores( new ArrayList<Jugador>( list ) );
         }
-        equipoEntity.setNombre( equipoDomain.getNombre() );
 
         return equipoEntity;
     }

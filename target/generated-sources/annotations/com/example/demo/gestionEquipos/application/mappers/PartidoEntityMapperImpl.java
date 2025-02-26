@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-02-26T18:49:59+0100",
-    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.39.0.v20240820-0604, environment: Java 21.0.4 (Eclipse Adoptium)"
+    date = "2025-02-26T19:30:07+0100",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.4 (Eclipse Adoptium)"
 )
 @Component
 public class PartidoEntityMapperImpl implements PartidoEntityMapper {
@@ -21,10 +21,10 @@ public class PartidoEntityMapperImpl implements PartidoEntityMapper {
 
         Partido partido = new Partido();
 
+        partido.setId( partidoEntity.getId() );
         partido.setEquipoLocal( partidoEntity.getEquipoLocal() );
         partido.setEquipoVisitante( partidoEntity.getEquipoVisitante() );
         partido.setFecha( partidoEntity.getFecha() );
-        partido.setId( partidoEntity.getId() );
         partido.setTipo( partidoEntity.getTipo() );
 
         return partido;
@@ -38,10 +38,10 @@ public class PartidoEntityMapperImpl implements PartidoEntityMapper {
 
         PartidoEntity partidoEntity = new PartidoEntity();
 
+        partidoEntity.setId( partidoDomain.getId() );
         partidoEntity.setEquipoLocal( partidoDomain.getEquipoLocal() );
         partidoEntity.setEquipoVisitante( partidoDomain.getEquipoVisitante() );
         partidoEntity.setFecha( partidoDomain.getFecha() );
-        partidoEntity.setId( partidoDomain.getId() );
         partidoEntity.setTipo( partidoDomain.getTipo() );
 
         return partidoEntity;
