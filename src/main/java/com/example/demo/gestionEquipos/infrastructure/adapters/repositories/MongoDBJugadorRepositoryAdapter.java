@@ -62,7 +62,8 @@ public class MongoDBJugadorRepositoryAdapter implements JugadorRepositoryPort {
 			entity.setVotos(new ArrayList<Voto>());
 		}
 		//JugadorEntity jugadorEntity = jugadorRepository.findById(voto.getJugador().getId()).get();
-		if(entity.getVotos().stream().anyMatch(votoEntity -> voto.getPartido().getId().equals(votoEntity.getPartido().getId()))) {
+		if(entity.getVotos().stream().anyMatch(votoEntity -> voto.getPartido().getId().equals(votoEntity.getPartido().getId())
+				&& votoEntity.getUsuario().getUsername().equals(voto.getUsuario().getUsername()))) {
 			return null;
 		}
 		entity.getVotos().add(voto);
