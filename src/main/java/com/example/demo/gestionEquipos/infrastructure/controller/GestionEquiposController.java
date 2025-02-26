@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.gestionEquipos.application.services.EquipoService;
 import com.example.demo.gestionEquipos.domain.model.Equipo;
+import com.example.demo.gestionEquipos.domain.model.Jugador;
 import com.example.demo.gestionEquipos.domain.model.Partido;
 import com.example.demo.gestionEquipos.domain.ports.out.PartidoRepositoryPort;
 
@@ -62,6 +63,17 @@ public class GestionEquiposController {
 			mongoDBpartido.save(partidoVuelta);
 		}
 
+	}
+	
+	@GetMapping("/recuperarJugadores")
+	public ResponseEntity<List<Jugador>> recuperarJugadores() {
+		try {
+			List<Jugador> jugadores = equipoService.recuperarJugadores();
+			return ResponseEntity.ok(jugadores);
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+
+		}
 	}
 
 }

@@ -12,11 +12,12 @@ import lombok.Setter;
 public class JugadorEntity {
 
 	@Id
-	private Long id;
+	private String id;
 	private String nombre;
 	private String apellidos;
 	private int dorsal;
 	private float valoracion;
 	private int goles;
 	private int asistencias;
+	private String equipoId;
 }

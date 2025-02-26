@@ -8,12 +8,12 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class Jugador {
-	private Long id;
+	private String id;
 	private String nombre;
 	private String apellidos;
 	private int dorsal;
 	private float valoracion;
 	private int goles;
 	private int asistencias;
-	private Long equipoId;
+	private String equipoId;
 }
