@@ -19,7 +19,7 @@ public class LoginUsuarioUseCaseImpl implements LoginUsuarioUseCase {
 	@Override
 	public boolean loginUsuario(Usuario usuarioLogin) {
 		// TODO Auto-generated method stub
-		Optional<Usuario> usuarioEntity = usuarioRepositoryPort.findByUsername(usuarioLogin.getUserName());
+		Optional<Usuario> usuarioEntity = usuarioRepositoryPort.findByUsername(usuarioLogin.getUsername());
 		if (usuarioEntity.isEmpty()) {
 			return false;
 		}

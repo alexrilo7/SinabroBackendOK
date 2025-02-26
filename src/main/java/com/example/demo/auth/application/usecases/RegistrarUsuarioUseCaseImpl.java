@@ -16,7 +16,7 @@ public class RegistrarUsuarioUseCaseImpl implements RegistrarUsuarioUseCase{
 	@Override
 	public Usuario registrarUsuario(Usuario usuarioRegistro) {
 		// TODO Auto-generated method stub
-		if(usuarioRepositoryPort.existsByUsername(usuarioRegistro.getUserName())) {
+		if(usuarioRepositoryPort.existsByUsername(usuarioRegistro.getUsername())) {
 			return null;
 		}
 		return usuarioRepositoryPort.save(usuarioRegistro);

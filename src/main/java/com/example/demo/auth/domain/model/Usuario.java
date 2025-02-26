@@ -9,6 +9,6 @@ import lombok.Setter;
 @Setter
 public class Usuario {
 
-	private String userName;
+	private String username;
 	private String password;
 }

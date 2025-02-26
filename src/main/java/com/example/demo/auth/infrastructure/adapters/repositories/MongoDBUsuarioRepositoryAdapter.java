@@ -25,7 +25,7 @@ public class MongoDBUsuarioRepositoryAdapter implements UsuarioRepositoryPort {
 	@Override
 	public Usuario save(Usuario usuario) {
 		UsuarioEntity usuarioEntity = usuarioMapper.toEntity(usuario);
-		if(mongoDBRepository.findById(usuario.getUserName()).isPresent()) {
+		if(mongoDBRepository.findById(usuario.getUsername()).isPresent()) {
 			return null;
 		}
 		return usuarioMapper.toDomain(mongoDBRepository.save(usuarioEntity));

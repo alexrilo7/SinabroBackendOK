@@ -12,7 +12,7 @@ import lombok.Setter;
 public class UsuarioEntity {
 
     @Id
-    private String userName;
+    private String username;
     private String password;
 
 }
