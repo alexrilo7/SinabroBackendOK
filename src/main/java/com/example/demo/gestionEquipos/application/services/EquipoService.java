@@ -8,12 +8,14 @@ import org.springframework.stereotype.Service;
 import com.example.demo.gestionEquipos.domain.model.Equipo;
 import com.example.demo.gestionEquipos.domain.model.Jugador;
 import com.example.demo.gestionEquipos.domain.model.Partido;
+import com.example.demo.gestionEquipos.domain.model.Voto;
 import com.example.demo.gestionEquipos.domain.ports.in.GenerarPartidosUseCase;
 import com.example.demo.gestionEquipos.domain.ports.in.RecuperarEquiposUseCase;
 import com.example.demo.gestionEquipos.domain.ports.in.RecuperarJugadoresUseCase;
+import com.example.demo.gestionEquipos.domain.ports.in.VotarJugadorUseCase;
 
 @Service
-public class EquipoService implements RecuperarEquiposUseCase, GenerarPartidosUseCase, RecuperarJugadoresUseCase {
+public class EquipoService implements RecuperarEquiposUseCase, GenerarPartidosUseCase, RecuperarJugadoresUseCase, VotarJugadorUseCase {
 
 	@Autowired
 	private RecuperarEquiposUseCase recuperarEquiposUseCase;
@@ -23,6 +25,9 @@ public class EquipoService implements RecuperarEquiposUseCase, GenerarPartidosUs
 	
 	@Autowired
 	private RecuperarJugadoresUseCase recuperarJugadoresUseCase;
+	
+	@Autowired
+	private VotarJugadorUseCase votarJugadorUseCase;
 
 	@Override
 	public List<Partido> generarPartidos(String equipoId) {
@@ -40,6 +45,12 @@ public class EquipoService implements RecuperarEquiposUseCase, GenerarPartidosUs
 	public List<Jugador> recuperarJugadores() {
 		// TODO Auto-generated method stub
 		return recuperarJugadoresUseCase.recuperarJugadores();
+	}
+
+	@Override
+	public Jugador votarJugador(Voto voto) {
+		// TODO Auto-generated method stub
+		return votarJugadorUseCase.votarJugador(voto);
 	}
 
 

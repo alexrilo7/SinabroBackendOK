@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-02-26T13:52:57+0100",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.4 (Eclipse Adoptium)"
+    date = "2025-02-26T16:02:15+0100",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.39.0.v20240820-0604, environment: Java 21.0.4 (Eclipse Adoptium)"
 )
 @Component
 public class EquipoEntityMapperImpl implements EquipoEntityMapper {
@@ -23,15 +23,15 @@ public class EquipoEntityMapperImpl implements EquipoEntityMapper {
         }
 
         String id = null;
-        String nombre = null;
         List<Jugador> jugadores = null;
+        String nombre = null;
 
         id = equipoEntity.getId();
-        nombre = equipoEntity.getNombre();
         List<Jugador> list = equipoEntity.getJugadores();
         if ( list != null ) {
             jugadores = new ArrayList<Jugador>( list );
         }
+        nombre = equipoEntity.getNombre();
 
         Equipo equipo = new Equipo( id, nombre, jugadores );
 
@@ -47,11 +47,11 @@ public class EquipoEntityMapperImpl implements EquipoEntityMapper {
         EquipoEntity equipoEntity = new EquipoEntity();
 
         equipoEntity.setId( equipoDomain.getId() );
-        equipoEntity.setNombre( equipoDomain.getNombre() );
         List<Jugador> list = equipoDomain.getJugadores();
         if ( list != null ) {
             equipoEntity.setJugadores( new ArrayList<Jugador>( list ) );
         }
+        equipoEntity.setNombre( equipoDomain.getNombre() );
 
         return equipoEntity;
     }

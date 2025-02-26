@@ -1,5 +1,7 @@
 package com.example.demo.gestionEquipos.domain.model;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,4 +18,5 @@ public class Jugador {
 	private int goles;
 	private int asistencias;
 	private String equipoId;
+	private List<Voto> votos;
 }

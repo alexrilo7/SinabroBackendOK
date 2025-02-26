@@ -1,7 +1,11 @@
 package com.example.demo.gestionEquipos.infrastructure.entity;
 
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.example.demo.gestionEquipos.domain.model.Voto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -20,4 +24,5 @@ public class JugadorEntity {
 	private int goles;
 	private int asistencias;
 	private String equipoId;
+	private List<Voto> votos;
 }

@@ -8,7 +8,9 @@ import org.springframework.stereotype.Component;
 
 import com.example.demo.gestionEquipos.application.mappers.JugadorEntityMapper;
 import com.example.demo.gestionEquipos.domain.model.Jugador;
+import com.example.demo.gestionEquipos.domain.model.Voto;
 import com.example.demo.gestionEquipos.domain.ports.out.JugadorRepositoryPort;
+import com.example.demo.gestionEquipos.infrastructure.entity.JugadorEntity;
 import com.example.demo.gestionEquipos.infrastructure.repository.MongoDBRepositoryJugador;
 
 @Component
@@ -44,8 +46,18 @@ public class MongoDBJugadorRepositoryAdapter implements JugadorRepositoryPort {
 	@Override
 	public Optional<Jugador> findById(String id) {
 		// TODO Auto-generated method stub
-		jugadorRepository.findById(id);
 		return Optional.of(jugadorMapper.toDomain(jugadorRepository.findById(id).get()));
+	}
+
+	@Override
+	public Jugador votarJugador(Voto voto) {
+		if (!jugadorRepository.findById(voto.getJugador().getId()).isPresent()) {
+			return null;
+		}
+		JugadorEntity jugadorEntity = jugadorRepository.findById(voto.getJugador().getId()).get();
+		jugadorEntity.getVotos().add(voto);
+		
+		return jugadorMapper.toDomain(jugadorRepository.save(jugadorEntity));
 	}
 
 }

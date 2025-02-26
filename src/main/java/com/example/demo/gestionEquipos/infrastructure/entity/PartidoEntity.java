@@ -1,9 +1,12 @@
 package com.example.demo.gestionEquipos.infrastructure.entity;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.data.mongodb.core.mapping.FieldType;
 
 import com.example.demo.gestionEquipos.domain.model.Equipo;
 
@@ -17,9 +20,12 @@ public class PartidoEntity {
 	
 	@Id
 	private String id;
+	@DBRef
 	private Equipo equipoLocal;
+	@DBRef
 	private Equipo equipoVisitante;
-	private LocalDateTime fecha;
-	private Long equipoId;
+	@Field(targetType = FieldType.DATE_TIME)
+	private Date fecha;
+	private String tipo;
 
 }
