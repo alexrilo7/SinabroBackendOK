@@ -1,14 +1,13 @@
-# Usa una imagen base de Java 17 (compatible con Spring Boot 3.x)
-FROM openjdk:17-jdk-alpine
-
-# Directorio de trabajo dentro del contenedor
+# Primera etapa: Construir el proyecto y generar el JAR
+FROM maven:3.8.6-openjdk-17 AS build
 WORKDIR /app
+COPY pom.xml .
+COPY src ./src
+RUN mvn clean package -DskipTests
 
-# Copia el archivo JAR generado al contenedor
-COPY target/backend-0.0.1-SNAPSHOT.jar app.jar
-
-# Expone el puerto en el que corre tu aplicación (por defecto, 8080)
+# Segunda etapa: Crear la imagen final
+FROM openjdk:17-jdk-alpine
+WORKDIR /app
+COPY --from=build /app/target/backend-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
-
-# Comando para ejecutar la aplicación
 ENTRYPOINT ["java", "-jar", "app.jar"]
