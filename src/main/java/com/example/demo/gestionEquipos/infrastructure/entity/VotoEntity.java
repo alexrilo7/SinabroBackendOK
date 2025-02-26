@@ -1,8 +1,8 @@
 package com.example.demo.gestionEquipos.infrastructure.entity;
 
+import com.example.demo.auth.domain.model.Usuario;
 import com.example.demo.gestionEquipos.domain.model.Jugador;
 import com.example.demo.gestionEquipos.domain.model.Partido;
-import com.example.demo.gestionEquipos.domain.model.Usuario;
 
 import lombok.Getter;
 import lombok.Setter;

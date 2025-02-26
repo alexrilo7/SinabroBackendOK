@@ -1,6 +1,6 @@
 package com.example.demo.gestionEquipos.domain.model;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,6 +15,6 @@ public class Partido {
 	private String id;
 	private Equipo equipoLocal;
 	private Equipo equipoVisitante;
-	private LocalDateTime fecha;
+	private Date fecha;
 	private String tipo;
 }

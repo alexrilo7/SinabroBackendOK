@@ -28,7 +28,6 @@ com\example\demo\gestionEquipos\domain\ports\in\VotarJugadorUseCase.class
 com\example\demo\gestionEquipos\infrastructure\repository\MongoDBRepositoryJugador.class
 com\example\demo\gestionEquipos\infrastructure\entity\VotoEntity.class
 com\example\demo\gestionEquipos\application\mappers\EquipoEntityMapperImpl.class
-com\example\demo\gestionEquipos\domain\model\Usuario.class
 com\example\demo\gestionEquipos\infrastructure\adapters\repositories\MongoDBEquipoRepositoryAdapter.class
 com\example\demo\gestionEquipos\infrastructure\repository\MongoDBRepositoryPartido.class
 com\example\demo\gestionEquipos\domain\model\Voto.class

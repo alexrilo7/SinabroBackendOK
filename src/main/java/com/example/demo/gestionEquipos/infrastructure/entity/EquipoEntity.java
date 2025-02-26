@@ -3,7 +3,6 @@ package com.example.demo.gestionEquipos.infrastructure.entity;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.example.demo.gestionEquipos.domain.model.Jugador;
@@ -19,7 +18,6 @@ public class EquipoEntity {
 	@Id
 	private String id;
 	private String nombre;
-	@DBRef
 	private List<Jugador> jugadores;
 
 }

@@ -1,5 +1,7 @@
 package com.example.demo.gestionEquipos.domain.model;
 
+import com.example.demo.auth.domain.model.Usuario;
+
 import lombok.Getter;
 import lombok.Setter;
 

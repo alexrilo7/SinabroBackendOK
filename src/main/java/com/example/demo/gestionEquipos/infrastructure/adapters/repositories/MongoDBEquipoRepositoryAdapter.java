@@ -37,14 +37,13 @@ public class MongoDBEquipoRepositoryAdapter implements EquipoRepositoryPort {
 
 	@Override
 	public List<Equipo> findAll() {
-		// TODO Auto-generated method stub
-		return equipoRepository.findAll().stream().map(equipo -> equipoMapper.toDomain(equipo)).toList();
+		List<Equipo> equipos = equipoRepository.findAll().stream().map(equipo -> equipoMapper.toDomain(equipo)).toList();
+		return equipos;
 	}
 
 	@Override
 	public Optional<Equipo> findById(String id) {
 		// TODO Auto-generated method stub
-		equipoRepository.findById(id);
 		return Optional.of(equipoMapper.toDomain(equipoRepository.findById(id).get()));
 	}
 

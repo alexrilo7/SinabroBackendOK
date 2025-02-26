@@ -1,5 +1,6 @@
 package com.example.demo.gestionEquipos.infrastructure.adapters.repositories;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -51,13 +52,15 @@ public class MongoDBJugadorRepositoryAdapter implements JugadorRepositoryPort {
 
 	@Override
 	public Jugador votarJugador(Voto voto) {
-		if (!jugadorRepository.findById(voto.getJugador().getId()).isPresent()) {
-			return null;
-		}
-		JugadorEntity jugadorEntity = jugadorRepository.findById(voto.getJugador().getId()).get();
-		jugadorEntity.getVotos().add(voto);
 		
-		return jugadorMapper.toDomain(jugadorRepository.save(jugadorEntity));
+		JugadorEntity entity = jugadorMapper.toEntity(voto.getJugador());
+		if(null == entity.getVotos()) {
+			entity.setVotos(new ArrayList<Voto>());
+		}
+		//JugadorEntity jugadorEntity = jugadorRepository.findById(voto.getJugador().getId()).get();
+		entity.getVotos().add(voto);
+		
+		return jugadorMapper.toDomain(jugadorRepository.save(entity));
 	}
 
 }
