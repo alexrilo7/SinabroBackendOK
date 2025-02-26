@@ -82,7 +82,10 @@ public class GestionEquiposController {
 	@PutMapping("/valorarJugador")
 	public ResponseEntity<Jugador> votarJugador(@RequestBody Voto voto) {
 		try {
-			Jugador votoActualizado = equipoService.votarJugador(voto);					
+			Jugador votoActualizado = equipoService.votarJugador(voto);
+			if(null == votoActualizado) {
+				return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+			}
 			return ResponseEntity.ok(votoActualizado);
 		} catch (Exception e) {
 			e.printStackTrace();

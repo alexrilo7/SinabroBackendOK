@@ -53,11 +53,18 @@ public class MongoDBJugadorRepositoryAdapter implements JugadorRepositoryPort {
 	@Override
 	public Jugador votarJugador(Voto voto) {
 		
-		JugadorEntity entity = jugadorMapper.toEntity(voto.getJugador());
-		if(null == entity.getVotos()) {
+		JugadorEntity entity = jugadorRepository.findByDorsal(voto.getJugador().getDorsal());
+		if(null == entity) {
+			entity = jugadorMapper.toEntity(voto.getJugador());
+			entity.setVotos(new ArrayList<Voto>());
+		}
+		else if(null == entity.getVotos()) {
 			entity.setVotos(new ArrayList<Voto>());
 		}
 		//JugadorEntity jugadorEntity = jugadorRepository.findById(voto.getJugador().getId()).get();
+		if(entity.getVotos().stream().anyMatch(votoEntity -> voto.getPartido().getId().equals(votoEntity.getPartido().getId()))) {
+			return null;
+		}
 		entity.getVotos().add(voto);
 		
 		return jugadorMapper.toDomain(jugadorRepository.save(entity));

@@ -6,5 +6,5 @@ import com.example.demo.gestionEquipos.infrastructure.entity.JugadorEntity;
 
 
 public interface MongoDBRepositoryJugador extends MongoRepository<JugadorEntity, String>{
-
+	public JugadorEntity findByDorsal(int dorsal);
 }

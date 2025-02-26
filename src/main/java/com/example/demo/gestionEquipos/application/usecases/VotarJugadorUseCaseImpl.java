@@ -17,7 +17,6 @@ public class VotarJugadorUseCaseImpl implements VotarJugadorUseCase{
 	@Override
 	public Jugador votarJugador(Voto voto) {
 		// TODO Auto-generated method stub	
-		
 		return jugadorRepositoryPort.votarJugador(voto);
 	}
 	
