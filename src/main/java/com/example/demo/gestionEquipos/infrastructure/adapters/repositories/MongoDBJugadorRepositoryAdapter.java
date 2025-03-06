@@ -67,6 +67,9 @@ public class MongoDBJugadorRepositoryAdapter implements JugadorRepositoryPort {
 			return null;
 		}
 		entity.getVotos().add(voto);
+		entity.setGoles(entity.getGoles()+voto.getGoles());
+		entity.setAsistencias(entity.getAsistencias()+voto.getAsistencias());
+		entity.setValoracion(entity.getVotos().stream().mapToDouble(Voto::getValoracion).average().orElse(0.0));
 		
 		return jugadorMapper.toDomain(jugadorRepository.save(entity));
 	}

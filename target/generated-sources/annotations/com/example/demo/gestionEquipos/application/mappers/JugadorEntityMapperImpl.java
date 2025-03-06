@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-02-26T20:25:44+0100",
+    date = "2025-03-06T15:39:52+0100",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.4 (Eclipse Adoptium)"
 )
 @Component
@@ -36,7 +36,7 @@ public class JugadorEntityMapperImpl implements JugadorEntityMapper {
         nombre = jugadorEntity.getNombre();
         apellidos = jugadorEntity.getApellidos();
         dorsal = jugadorEntity.getDorsal();
-        valoracion = jugadorEntity.getValoracion();
+        valoracion = (float) jugadorEntity.getValoracion();
         goles = jugadorEntity.getGoles();
         asistencias = jugadorEntity.getAsistencias();
         equipoId = jugadorEntity.getEquipoId();

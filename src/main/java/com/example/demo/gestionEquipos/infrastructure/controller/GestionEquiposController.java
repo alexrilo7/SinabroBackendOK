@@ -1,5 +1,6 @@
 package com.example.demo.gestionEquipos.infrastructure.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,12 +58,14 @@ public class GestionEquiposController {
 			partidoIda.setEquipoLocal(equipos.get(0));
 			partidoIda.setEquipoVisitante(equipos.get(j));
 			partidoIda.setTipo("ida");
+			partidoIda.setFecha(new Date());
 			mongoDBpartido.save(partidoIda);
 
 			Partido partidoVuelta = new Partido();
 			partidoVuelta.setEquipoLocal(equipos.get(j));
 			partidoVuelta.setEquipoVisitante(equipos.get(0));
 			partidoVuelta.setTipo("vuelta");
+			partidoVuelta.setFecha(new Date());
 			mongoDBpartido.save(partidoVuelta);
 		}
 

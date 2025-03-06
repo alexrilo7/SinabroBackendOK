@@ -20,7 +20,7 @@ public class JugadorEntity {
 	private String nombre;
 	private String apellidos;
 	private int dorsal;
-	private float valoracion;
+	private double valoracion;
 	private int goles;
 	private int asistencias;
 	private String equipoId;
